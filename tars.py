@@ -2,10 +2,14 @@ from llama_cpp import Llama
 import os
 from colorama import Fore, Style
 import sys
+import dotenv
+
+# Load .env
+dotenv.load_dotenv()
 
 # Paths
-MODEL_PATH = r"E:\mistral-7b-instruct-v0.2.Q5_K_M.gguf"  # Path to the model
-MEMORY_FILE = "memory.txt"
+MODEL_PATH = os.getenv("MODEL_PATH")  # Path to the model
+MEMORY_FILE = "memory.txt" # Path to the memory file
 
 # Load conversation memory
 if os.path.exists(MEMORY_FILE):
